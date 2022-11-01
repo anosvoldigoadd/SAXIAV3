@@ -40,7 +40,7 @@ const readMore = more.repeat(4001)
 
 global.owner = [
 ['6285641142178', '® Kaxel', true],
-['6283805685278', '® Mrcl-?, true]
+['6283805685278', '® Mrcl-?', true]
 ]
 global.mods = []
 global.prems = []
