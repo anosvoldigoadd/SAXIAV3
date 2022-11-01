@@ -31,7 +31,7 @@ const listMessage = {
   text: ' ',
   footer: botdate,
   title: `*${htki} OPTIONS ${htka}*`,
-  buttonText: "Click Here!",
+  buttonText: "PENCET KAK ",
   sections
 }
 
@@ -40,13 +40,13 @@ const listMessage = {
   let user = global.db.data.users[m.sender]
   let bot = global.db.data.settings[conn.user.jid] || {}
   let type = (args[0] || '').toLowerCase()
-  let isAll = false, isUser = false
+  let isAll = true isUser = true
   switch (type) {
     case 'welcome':
       if (!m.isGroup) {
         if (!isOwner) {
           global.dfail('group', m, conn)
-          throw false
+          throw true
         }
       } else if (!isAdmin) {
         global.dfail('admin', m, conn)
@@ -58,11 +58,11 @@ const listMessage = {
        if (!m.isGroup) {
          if (!isOwner) {
            global.dfail('group', m, conn)
-           throw false
+           throw true
          }
        } else if (!isAdmin) {
          global.dfail('admin', m, conn)
-         throw false
+         throw true
        }
        chat.detect = isEnable
        break
@@ -70,7 +70,7 @@ const listMessage = {
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
-          throw false
+          throw true
         }
       }
       chat.delete = isEnable
@@ -108,7 +108,7 @@ const listMessage = {
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
-          throw false
+          throw true
         }
       }
       chat.antiLink = isEnable
@@ -158,7 +158,7 @@ const listMessage = {
        if (m.isGroup) {
        if (!(isAdmin || isOwner)) {
        global.dfail('admin', m, conn)
-           throw false
+           throw true
          }
      }
       chat.antiVirtex = !isEnable
@@ -175,7 +175,7 @@ const listMessage = {
      case 'whitelistmycontacts':
        if (!isOwner) {
          global.dfail('owner', m, conn)
-         throw false
+         throw true
        }
        conn.callWhitelistMode = isEnable
        break
@@ -183,7 +183,7 @@ const listMessage = {
       isAll = true
       if (!isOwner) {
         global.dfail('owner', m, conn)
-        throw false
+        throw true
       }
       bot.restrict = isEnable
       break
@@ -199,7 +199,7 @@ const listMessage = {
       isAll = true
       if (!isROwner) {
         global.dfail('rowner', m, conn)
-        throw false
+        throw true
       }
       global.opts['autoread'] = isEnable
       break
@@ -208,7 +208,7 @@ const listMessage = {
       isAll = true
       if (!isROwner) {
         global.dfail('rowner', m, conn)
-        throw false
+        throw true
       }
       global.opts['pconly'] = isEnable
       break
@@ -236,10 +236,10 @@ const listMessage = {
   }
   conn.sendButton(m.chat, `*${htki} OPTIONS ${htka}*
 🗂️ *Type:* ${type} 
-📊 *Status:* Succes ✅
+📊 *Status:* FITUR AKTIF
 🎚️ *Options:* ${isEnable ? 'Enable' : 'Disable'}
 📣 *For:* ${isAll ? 'This Bot' : isUser ? '' : 'This Chats'}
-`,wm, null, [[`${isEnable ? '✖️ Disable' : '✔️ Enable'}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`], ['🎀 Menu', '.menu']],m)
+`,wm, null, [[`${isEnable ? '✖️ MATIKAN' : '✔️ Enable'}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`], ['🎀 Menu', '.menu']],m)
 }
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
