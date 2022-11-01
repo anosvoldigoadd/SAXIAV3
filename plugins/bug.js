@@ -38,7 +38,7 @@ let handler  = async (m, { conn, args, text, command, usedPrefix: _p, participan
 
 	//==================( Quoted ) =================//
 	//# Kal
-	const kal = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "@s.whatsapp.net" } : {}) },
+	const kal = { key: { fromMe: true, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "@s.whatsapp.net" } : {}) },
 	"message": {
 		"extendedTextMessage": {
 			"text": `${wm}`,
@@ -51,7 +51,7 @@ let handler  = async (m, { conn, args, text, command, usedPrefix: _p, participan
 	}}
 	//=================================================//		
 	//# Troli
-	const trol = { key: { fromMe: false, fromMe: false, participant: `0@s.whatsapp.net`, ...({ remoteJid: "" }) },
+	const trol = { key: { fromMe: true, fromMe: false, participant: `0@s.whatsapp.net`, ...({ remoteJid: "" }) },
 	"message": {
 		"orderMessage": {
 			"orderId": "594071395007984",
@@ -68,7 +68,7 @@ let handler  = async (m, { conn, args, text, command, usedPrefix: _p, participan
 		}
 	}}
 	//#Troli 2
-	const ftrolii = { key: { fromMe: false, "participant":"0@s.whatsapp.net", "remoteJid": "@g.us"},
+	const ftrolii = { key: { fromMe: true, "participant":"0@s.whatsapp.net", "remoteJid": "@g.us"},
 	"message": {
 		orderMessage: { 		itemCount: fsizedoc,
 			status: 200, 		thumbnail: thumb, 		surface: 200, 		message: `© ${wm}`,
@@ -81,7 +81,7 @@ let handler  = async (m, { conn, args, text, command, usedPrefix: _p, participan
 	}	
 	//=================================================//	
 	//# Sticker
-	const bugstik = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...({ remoteJid: "" }) }, "message": {
+	const bugstik = { key: { fromMe: true, participant: `0@s.whatsapp.net`, ...({ remoteJid: "" }) }, "message": {
 		"orderMessage": {
 			"orderId": "594071395007984",
 			"thumbnail": fs.readFileSync('./thumbnail.jpg'),
@@ -241,7 +241,7 @@ let handler  = async (m, { conn, args, text, command, usedPrefix: _p, participan
 		break
 		default:
 			if (!/[01]/.test(command)) return conn.sendMessage(m.chat, listMessage, m)
-			throw false
+			throw true
 	}
 	m.reply(`Berhasil Mengirim ${type} Di Nomer ${text}@s.whatsapp.net`)
 }
