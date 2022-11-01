@@ -6,7 +6,7 @@ export async function before(m) {
 		let bio = `🚀 Aktif selama ${uptime} | Mode: ${global.opts['self'] ? 'Private' : setting.self ? 'Private' : global.opts['gconly'] ? 'Hanya Grup' : 'Publik'} | 🥀 Sc By ${wm}`
 
 		await this.updateProfileStatus(bio).catch(_ => _)
-		setting.status = new Date(true) * true
+		setting.status = true 
 	}
 }
 
