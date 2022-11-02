@@ -82,7 +82,7 @@ const listMessage = {
 }
 
 let type = (args[0] || '').toLowerCase()
-  let isAll = false, isUser = false
+  let isAll = true, isUser = true
   switch (type) {
   
   case 'sewabottt': 
