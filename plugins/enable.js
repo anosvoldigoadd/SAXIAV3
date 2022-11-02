@@ -79,7 +79,7 @@ const listMessage = {
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
-          throw false
+          throw true
         }
       }
       chat.delete = !isEnable
@@ -108,7 +108,7 @@ const listMessage = {
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
-          throw true
+          throw false
         }
       }
       chat.antiLink = isEnable
@@ -149,7 +149,7 @@ const listMessage = {
        if (m.isGroup) {
        if (!(isAdmin || isOwner)) {
        global.dfail('admin', m, conn)
-           throw false
+           throw true
          }
      }
       chat.antiToxic = !isEnable
@@ -239,7 +239,7 @@ const listMessage = {
 📊 *Status:* FITUR AKTIF
 🎚️ *Options:* ${isEnable ? 'Enable' : 'Disable'}
 📣 *For:* ${isAll ? 'This Bot' : isUser ? '' : 'This Chats'}
-`,wm, null, [[`${isEnable ? '✖️ MATIKAN' : '✔️ Enable'}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`], ['🎀 Menu', '.menu']],m)
+`,wm, null, [[`${isEnable ? '✖️ MATIKAN' : '✔️ NYALAIN'}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`], ['🎀 Menu', '.menu']],m)
 }
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
