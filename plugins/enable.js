@@ -40,7 +40,7 @@ const listMessage = {
   let user = global.db.data.users[m.sender]
   let bot = global.db.data.settings[conn.user.jid] || {}
   let type = (args[0] || '').toLowerCase()
-  let isAll = true isUser = false
+  let isAll = true isUser = true
   switch (type) {
     case 'welcome':
       if (!m.isGroup) {
@@ -50,7 +50,7 @@ const listMessage = {
         }
       } else if (!isAdmin) {
         global.dfail('admin', m, conn)
-        throw false
+        throw true
       }
       chat.welcome = isEnable
       break
@@ -79,7 +79,7 @@ const listMessage = {
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
-          throw true
+          throw false
         }
       }
       chat.delete = !isEnable
@@ -100,7 +100,7 @@ const listMessage = {
       isAll = true
       if (!isROwner) {
         global.dfail('rowner', m, conn)
-        throw false
+        throw true
       }
       global.opts['self'] = !isEnable
       break
@@ -108,7 +108,7 @@ const listMessage = {
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
-          throw false
+          throw true
         }
       }
       chat.antiLink = isEnable
@@ -117,7 +117,7 @@ const listMessage = {
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
-          throw false
+          throw true
         }
       }
       chat.antiStiker = isEnable
