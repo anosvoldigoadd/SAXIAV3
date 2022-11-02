@@ -545,7 +545,7 @@ throw e
 }
 handler.command = /^(tesm|\?)$/i
 
-handler.register = false
+handler.register = true
 handler.exp = 3
 
 export default handler
