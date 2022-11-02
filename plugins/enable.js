@@ -40,7 +40,7 @@ const listMessage = {
   let user = global.db.data.users[m.sender]
   let bot = global.db.data.settings[conn.user.jid] || {}
   let type = (args[0] || '').toLowerCase()
-  let isAll = true isUser = true
+  let isAll = true isUser = false
   switch (type) {
     case 'welcome':
       if (!m.isGroup) {
